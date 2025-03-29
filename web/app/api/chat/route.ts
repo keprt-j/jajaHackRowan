@@ -21,10 +21,10 @@ Guidelines:
 
 export async function POST(req: Request) {
   try {
-    const { message, messages } = await req.json();
+    const { messages } = await req.json();
 
-    if (!message) {
-      return NextResponse.json({ error: 'Message is required' }, { status: 400 });
+    if (!messages || messages.length === 0) {
+      return NextResponse.json({ error: 'Messages are required' }, { status: 400 });
     }
 
     const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
@@ -50,8 +50,9 @@ export async function POST(req: Request) {
         parts: [{ text: msg.content }]
       }));
 
-    // Send the current message
-    const result = await chat.sendMessageStream(message);
+    // Send the last message
+    const lastMessage = userMessages[userMessages.length - 1];
+    const result = await chat.sendMessageStream(lastMessage.parts[0].text);
 
     const stream = new ReadableStream({
       async start(controller) {
@@ -62,6 +63,7 @@ export async function POST(req: Request) {
               controller.enqueue(`data: ${JSON.stringify({ text })}\n\n`);
             }
           }
+          controller.enqueue('data: [DONE]\n\n');
           controller.close();
         } catch (error) {
           console.error('Streaming error:', error);

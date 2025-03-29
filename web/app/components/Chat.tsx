@@ -78,12 +78,12 @@ export default function Chat() {
             }
             try {
               const parsed = JSON.parse(data);
-              if (parsed.choices?.[0]?.delta?.content) {
+              if (parsed.text) {
                 setMessages(prev => {
                   const newMessages = [...prev];
                   const lastMessage = newMessages[newMessages.length - 1];
                   if (lastMessage.role === 'assistant') {
-                    lastMessage.content += parsed.choices[0].delta.content;
+                    lastMessage.content += parsed.text;
                   }
                   return newMessages;
                 });
@@ -150,7 +150,7 @@ export default function Chat() {
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
-                  <span className="text-xs mt-1 block opacity-70">
+                  <span className="text-xs mt-0.5 block opacity-70">
                     {message.timestamp}
                   </span>
                 </div>
@@ -178,7 +178,7 @@ export default function Chat() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
                 style={{ borderRadius: '20px' }}
-                className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                 disabled={isLoading}
               />
               <button
