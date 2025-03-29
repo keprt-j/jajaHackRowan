@@ -36,17 +36,22 @@ export default function Home() {
   };
   return (
     <div>
-      <div className="flex">
+      <div className="flex justify-content-between">
+        <div className="mx-2 my-1 font-bold text-2xl">Cancer detector</div>
         {!isLoading && !user && (
-          <div>
+          <div className="mx-2 my-1">
             <a href="/auth/login">Log in</a>
           </div>
         )}
-      </div>
-      <div>
         {user && (
-          <div>
-            <div>
+          <div className="flex">
+            <div className="mx-2 my-1">
+              <div>{user.name}</div>
+              <div>
+                <a href="/auth/logout">Log out</a>
+              </div>
+            </div>
+            <div className="mx-2 my-1">
               <img
                 src={user.picture}
                 alt="Profile"
@@ -54,12 +59,6 @@ export default function Home() {
                 width="50"
                 height="50"
               />
-            </div>
-            <div>
-              <div>{user.name}</div>
-              <div>
-                <a href="/auth/logout">Log out</a>
-              </div>
             </div>
           </div>
         )}
@@ -69,7 +68,7 @@ export default function Home() {
           onClick={() => {
             fileInputRef.current?.click();
           }}
-          className="">
+          className={`rounded-lg bg-blue-500 hover:bg-indigo-500 px-6 py-2 text-lg transition-all text-white ease-in-out ring-blue-800 duration-100 outline-none`}>
           Upload Photo
         </button>
         <input

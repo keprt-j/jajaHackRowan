@@ -1,7 +1,6 @@
 'use client';
 
 import './globals.css';
-import { Container } from 'reactstrap';
 import React from 'react';
 import { Auth0Provider } from '@auth0/nextjs-auth0';
 
