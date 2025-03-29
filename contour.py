@@ -27,10 +27,10 @@ def process_image(image_path):
   for (x, y, w, h) in regions:
       cv2.rectangle(image_with_boxes, (x, y), (x + w, y + h), (255, 0, 0), 2)  # Red boxes
 
-  plt.figure(figsize=(5, 5))
-  plt.imshow(image_with_boxes)
-  plt.axis("off")
-  plt.show()
+ # plt.figure(figsize=(5, 5))
+  #plt.imshow(image_with_boxes)
+  #plt.axis("off")
+  #plt.show()
 
   # Output the detected regions
-  return ("Detected regions:", regions)
+  return (regions, image_with_boxes)
