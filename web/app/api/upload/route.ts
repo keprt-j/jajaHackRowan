@@ -21,7 +21,8 @@ export async function POST(req) {
     }
 
     const fileBuffer = Buffer.from(await file.arrayBuffer());
-    const tempFilePath = `/tmp/${file.name}`;
+    const fileName = (file as File).name;
+    const tempFilePath = `/tmp/${fileName}`;
     await fsPromises.writeFile(tempFilePath, new Uint8Array(fileBuffer));
 
     const externalFormData = new FormData();
