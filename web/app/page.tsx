@@ -1,12 +1,14 @@
 'use client';
 
 import { useUser } from '@auth0/nextjs-auth0';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Home() {
   const { user, isLoading } = useUser();
-
+  const [image, setImage] = useState<File | null>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const [predData, setPredData] = useState<any>(null);
 
   const getPrediction = async () => {
     console.log(fileInputRef.current?.files);
@@ -14,6 +16,7 @@ export default function Home() {
     if (fileInputRef.current?.files) {
       const file = fileInputRef.current.files[0];
       formData.append('file', file);
+      setImage(file);
     }
 
     console.log(formData);
@@ -28,12 +31,14 @@ export default function Home() {
       }
 
       const data = await response.json();
+      setPredData(data);
       console.log('Upload success:', data);
     } catch (err) {
       console.error('Upload error:', err);
     } finally {
     }
   };
+
   return (
     <div>
       <div className="flex justify-content-between">
@@ -52,23 +57,44 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-2 my-1">
-              <img
-                src={user.picture}
-                alt="Profile"
-                className="nav-user-profile rounded-circle"
-                width="50"
-                height="50"
-              />
+              <img src={user.picture} alt="Profile" className="rounded-circle" width="50" height="50" />
             </div>
           </div>
         )}
       </div>
-      <div>
+      <div className="w-full flex justify-center">
+        {predData && (
+          <div className="mx-2 my-1 flex justify-center items-center">
+            <div className="mr-4">
+              <img
+                src={URL.createObjectURL(image!)}
+                alt="Uploaded"
+                className="rounded-xl shadow-lg"
+                width="300"
+                height="300"
+              />
+            </div>
+            <div>
+              <div className="font-bold text-2xl">Results</div>
+              <div>
+                <div className="font-bold text-lg">
+                  Prediction:{' '}
+                  <span className={`${predData.prediction === 'malignant' ? 'text-red-500' : 'text-green-500'}`}>
+                    {predData.prediction}
+                  </span>
+                </div>
+                <div className="font-bold text-lg">Confidence: {predData.confidence * 100}%</div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="flex justify-center items-center">
         <button
           onClick={() => {
             fileInputRef.current?.click();
           }}
-          className={`rounded-lg bg-blue-500 hover:bg-indigo-500 px-6 py-2 text-lg transition-all text-white ease-in-out ring-blue-800 duration-100 outline-none`}>
+          className={`rounded-lg bg-blue-500 hover:bg-blue-600 px-6 py-2 text-lg transition-all text-white ease-in-out ring-blue-800 duration-100 outline-none`}>
           Upload Photo
         </button>
         <input
