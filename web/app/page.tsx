@@ -60,11 +60,7 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 className="h-8 w-8 bg-gray-200 rounded-full animate-pulse"
               />
-            ) : error ? (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500">
-                Error loading user
-              </motion.div>
-            ) : user ? (
+            ) : user && user.name ? (
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -79,6 +75,14 @@ export default function Home() {
                   style={{ borderRadius: '50%' }}
                   className="h-10 w-10 ring-2 ring-gray-200"
                 />
+                <motion.a
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  href="/auth/logout"
+                  style={{ borderRadius: '20px' }}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200">
+                  Log out
+                </motion.a>
               </motion.div>
             ) : (
               <motion.a
@@ -86,7 +90,7 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 href="/auth/login"
                 style={{ borderRadius: '20px' }}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-blue-500 bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
                 Log in
               </motion.a>
             )}

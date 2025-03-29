@@ -1,10 +1,17 @@
-'use client';
-
 import './globals.css';
 import React from 'react';
 import { Auth0Provider } from '@auth0/nextjs-auth0';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-export default function RootLayout({ children }) {
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'JajaHack',
+  description: 'AI-powered platform for seamless communication'
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -16,7 +23,7 @@ export default function RootLayout({ children }) {
         />
         <link rel="stylesheet" href="https://cdn.auth0.com/js/auth0-samples-theme/1.0/css/auth0-theme.min.css" />
       </head>
-      <body>
+      <body className={inter.className}>
         <Auth0Provider>
           <main id="app" className="d-flex flex-column h-100" data-testid="layout">
             {children}
