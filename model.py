@@ -1,10 +1,4 @@
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -17,19 +11,13 @@ from flask import Flask
 from joblib import dump
 
 models = {
-    "knn": KNeighborsClassifier(n_neighbors=1),
-    "naive_bayes": GaussianNB(),
-    "logit": LogisticRegression(solver="lbfgs", multi_class="auto"),
-    "svm": SVC(kernel="linear"),
-    "decision_tree": DecisionTreeClassifier(),
     "random_forest": RandomForestClassifier(n_estimators=100),
-    "mlp": MLPClassifier()
 }
 
-#ap = argparse.ArgumentParser()
-#  ap.add_argument("-d", "--dataset", type=str, default="dataset",
-#     help="path to directory containing the '3scenes' dataset")
-#ap.add_argument("-m", "--model", type=str, default="knn", help="type of pythoargs = vars(ap.parse_args())use")
+ap = argparse.ArgumentParser()
+ap.add_argument("-d", "--dataset", type=str, default="dataset",
+    help="path to directory containing the '3scenes' dataset")
+ap.add_argument("-m", "--model", type=str, default="knn", help="type of pythoargs = vars(ap.parse_args())use")
 
 def color_stats(image):
     (R, G, B) = image.split()
