@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { useUser } from '@auth0/nextjs-auth0';
+import React from "react";
+import Link from "next/link";
+import { useUser } from "@auth0/nextjs-auth0";
 
 export default function LandingPage() {
   const { user, isLoading } = useUser();
@@ -14,8 +14,19 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
               <h1 className="text-2xl font-bold text-gray-900">BenignAI</h1>
             </div>
@@ -25,10 +36,12 @@ export default function LandingPage() {
               ) : user ? (
                 <div className="flex items-center space-x-4">
                   <div className="text-right">
-                    <div className="text-sm font-medium text-gray-900">{user.name}</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      {user.name}
+                    </div>
                     <Link
-                      href="/api/auth/logout"
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200 rounded-md"
+                      href="/auth/logout"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200 rounded-md"
                     >
                       Log out
                     </Link>
@@ -41,7 +54,7 @@ export default function LandingPage() {
                 </div>
               ) : (
                 <Link
-                  href="/api/auth/login"
+                  href="/auth/login"
                   className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 rounded-md"
                 >
                   Log in
@@ -61,8 +74,9 @@ export default function LandingPage() {
               <span className="block text-blue-600">Analysis Platform</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Leveraging cutting-edge AI technology to provide accurate and rapid cancer detection analysis.
-              Get instant results and expert insights for your medical images.
+              Leveraging cutting-edge AI technology to provide accurate and
+              rapid cancer detection analysis. Get instant results and expert
+              insights for your medical images.
             </p>
           </div>
         </div>
@@ -86,13 +100,27 @@ export default function LandingPage() {
               <div className="relative p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-blue-500 text-white mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-medium text-gray-900">AI-Powered Analysis</h3>
+                  <h3 className="text-lg font-medium text-gray-900">
+                    AI-Powered Analysis
+                  </h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Advanced machine learning algorithms for accurate cancer detection and analysis.
+                    Advanced machine learning algorithms for accurate cancer
+                    detection and analysis.
                   </p>
                 </div>
               </div>
@@ -101,13 +129,27 @@ export default function LandingPage() {
               <div className="relative p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-blue-500 text-white mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-medium text-gray-900">Real-time Results</h3>
+                  <h3 className="text-lg font-medium text-gray-900">
+                    Real-time Results
+                  </h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get instant results with detailed confidence scores and predictions.
+                    Get instant results with detailed confidence scores and
+                    predictions.
                   </p>
                 </div>
               </div>
@@ -116,13 +158,27 @@ export default function LandingPage() {
               <div className="relative p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-blue-500 text-white mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                      />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-medium text-gray-900">AI Assistant</h3>
+                  <h3 className="text-lg font-medium text-gray-900">
+                    AI Assistant
+                  </h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get expert insights and answers to your questions about the analysis results.
+                    Get expert insights and answers to your questions about the
+                    analysis results.
                   </p>
                 </div>
               </div>
@@ -136,7 +192,9 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             <span className="block">Ready to get started?</span>
-            <span className="block text-blue-200">Start analyzing your medical images today.</span>
+            <span className="block text-blue-200">
+              Start analyzing your medical images today.
+            </span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <Link
@@ -160,4 +218,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
