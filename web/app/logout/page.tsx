@@ -8,15 +8,16 @@ export default function LandingPage() {
   const { user, isLoading } = useUser();
 
   const handleLogout = () => {
-    const auth0Domain = process.env.PUBLIC_AUTH0_DOMAIN;
-    const clientId = process.env.PUBLIC_AUTH0_CLIENT_ID;
-    const returnTo = window.location.origin; // Redirect to the home page after logout
+  const auth0Domain = process.env.NEXT_PUBLIC_AUTH0_DOMAIN;
+  const clientId = process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID;
+  const returnTo = window.location.origin; // Redirect to the home page after logout
 
-    // Redirect to the Auth0 logout endpoint
-    window.location.href = `https://${auth0Domain}/v2/logout?returnTo=${encodeURIComponent(
-      returnTo
-    )}&client_id=${clientId}`;
-  };
+  // Redirect to the Auth0 logout endpoint
+  window.location.href = `https:///v2/logout?{
+    returnTo,
+    client_id: clientId,
+  }).toString()}`;
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -62,8 +63,6 @@ export default function LandingPage() {
           </div>
         </div>
       </header>
-
-      {/* Rest of the page content */}
     </div>
   );
 }
