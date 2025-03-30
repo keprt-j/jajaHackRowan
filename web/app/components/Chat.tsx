@@ -125,7 +125,7 @@ export default function Chat() {
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
-            <h2 className="text-lg font-semibold text-gray-900">AI Assistant</h2>
+            <h2 className="text-lg font-semibold text-gray-900">Clara</h2>
             <button
               onClick={() => setIsOpen(false)}
               className="text-gray-500 hover:text-gray-700 transition-colors duration-200"
