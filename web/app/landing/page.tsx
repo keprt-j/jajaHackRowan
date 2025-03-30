@@ -28,8 +28,7 @@ export default function LandingPage() {
                     <div className="text-sm font-medium text-gray-900">{user.name}</div>
                     <Link
                       href="/api/auth/logout"
-                      style={{ borderRadius: '20px' }}
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200 rounded-md"
                     >
                       Log out
                     </Link>
@@ -37,15 +36,13 @@ export default function LandingPage() {
                   <img
                     src={user.picture}
                     alt="Profile"
-                    style={{ borderRadius: '50%' }}
-                    className="h-10 w-10 ring-2 ring-gray-200"
+                    className="h-10 w-10 rounded-full ring-2 ring-gray-200"
                   />
                 </div>
               ) : (
                 <Link
                   href="/api/auth/login"
-                  style={{ borderRadius: '20px' }}
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 rounded-md"
                 >
                   Log in
                 </Link>
@@ -79,7 +76,7 @@ export default function LandingPage() {
               Key Features
             </h2>
             <p className="mt-4 text-lg text-gray-500">
-              Everything you need for accurate medical image analysis
+              Everything you need for accurate medical image analysis.
             </p>
           </div>
 
@@ -110,7 +107,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">Real-time Results</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get instant analysis results with detailed confidence scores and predictions.
+                    Get instant results with detailed confidence scores and predictions.
                   </p>
                 </div>
               </div>
@@ -125,7 +122,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">AI Assistant</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get expert insights and answers to your questions about the analysis results.
+                    Get expert insights and analysis to your questions about your health.
                   </p>
                 </div>
               </div>
@@ -133,20 +130,8 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-
-      {/* How It Works Section */}
-      <div className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              How It Works
-            </h2>
-            <p className="mt-4 text-lg text-gray-500">
-              Simple steps to get your analysis results
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
+
+
