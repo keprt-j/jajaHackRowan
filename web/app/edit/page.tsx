@@ -407,4 +407,3 @@ export default function Home() {
       <Chat />
     </div>
   );
-}
