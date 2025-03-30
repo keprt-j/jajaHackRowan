@@ -122,55 +122,9 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">AI Assistant</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get expert insights and analysis to your questions about your health.
+                    Get expert insights and answers to your questions about the analysis results.
                   </p>
                 </div>
-              </div>
-             {/* How It Works Section */}
-      <div className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              How It Works
-            </h2>
-            <p className="mt-4 text-lg text-gray-500">
-              Simple steps to get your results.
-            </p>
-          </div>
-
-          <div className="mt-20">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Step 1 */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white text-xl font-bold mb-4">
-                  1
-                </div>
-                <h3 className="text-lg font-medium text-gray-900">Upload Image</h3>
-                <p className="mt-2 text-base text-gray-500">
-                  Upload your medical image in JPG, JPEG, or PNG format.
-                </p>
-              </div>
-
-              {/* Step 2 */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white text-xl font-bold mb-4">
-                  2
-                </div>
-                <h3 className="text-lg font-medium text-gray-900">AI Analysis</h3>
-                <p className="mt-2 text-base text-gray-500">
-                  Our AI system analyzes your image for cancer detection.
-                </p>
-              </div>
-
-              {/* Step 3 */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white text-xl font-bold mb-4">
-                  3
-                </div>
-                <h3 className="text-lg font-medium text-gray-900">Get Results</h3>
-                <p className="mt-2 text-base text-gray-500">
-                  Receive detailed analysis results and expert insights.
-                </p>
               </div>
             </div>
           </div>
@@ -185,18 +139,12 @@ export default function LandingPage() {
             <span className="block text-blue-200">Start analyzing your medical images today.</span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-            <div className="inline-flex rounded-md shadow">
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>     
-    </div>
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
+            >
+              Get Started
+            </Link>
           </div>
         </div>
       </div>
@@ -205,10 +153,12 @@ export default function LandingPage() {
       <footer className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-gray-500">
-            &copy; {new Date().getFullYear()} BenignAI. All rights reserved.
+            &copy; {new Date().getFullYear()} BenignAI.
           </div>
         </div>
       </footer>
     </div>
   );
+}
+
 }
