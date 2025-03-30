@@ -81,7 +81,7 @@ export default function LandingPage() {
               Key Features
             </h2>
             <p className="mt-4 text-lg text-gray-500">
-              Everything you need for accurate medical image analysis
+              Everything you need for accurate medical image analysis.
             </p>
           </div>
 
@@ -112,7 +112,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">Real-time Results</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get instant analysis results with detailed confidence scores and predictions.
+                    Get instant results with detailed confidence scores and predictions.
                   </p>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">AI Assistant</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    Get expert insights and answers to your questions about the analysis results.
+                    Get insightful answers to your pressing questions about your health, on YOUR time.
                   </p>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function LandingPage() {
               How It Works
             </h2>
             <p className="mt-4 text-lg text-gray-500">
-              Simple steps to get your analysis results
+              Simple steps to get your results.
             </p>
           </div>
 
