@@ -80,7 +80,7 @@ export default function Home() {
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               />
             </svg>
-            <h1 className="text-2xl font-bold text-gray-900">Medical Image Analysis</h1>
+            <h1 className="text-2xl font-bold text-gray-900">BenignAI</h1>
           </motion.div>
           <div className="flex items-center space-x-4">
             {isLoading ? (
@@ -117,7 +117,7 @@ export default function Home() {
               <motion.a
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                href="/api/auth/login"
+                href="/auth/login"
                 style={{ borderRadius: '20px' }}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
                 Log in
@@ -160,10 +160,10 @@ export default function Home() {
                       src={URL.createObjectURL(image!)}
                       alt="Uploaded"
                       style={{ borderRadius: '20px' }}
-                      className="shadow-lg w-64 h-64 object-contain bg-gray-50"
+                      className="shadow-lg object-contain bg-gray-50"
                     />
                     {showRegions && predData.regions && (
-                      <div className="absolute inset-0 w-64 h-64">
+                      <div className="absolute inset-0">
                         {predData.regions.map((region, index) => (
                           <div
                             key={index}
@@ -172,7 +172,7 @@ export default function Home() {
                               left: `${region[0]}px`,
                               top: `${region[1]}px`,
                               width: `${region[2]}px`,
-                              height: `${region[3]}px`,
+                              height: `${region[3]}px`
                             }}
                           />
                         ))}
@@ -184,7 +184,7 @@ export default function Home() {
                       <input
                         type="checkbox"
                         checked={showRegions}
-                        onChange={(e) => setShowRegions(e.target.checked)}
+                        onChange={e => setShowRegions(e.target.checked)}
                         className="form-checkbox h-5 w-5 text-blue-500 rounded border-gray-300 focus:ring-blue-500"
                       />
                       <span className="text-sm text-gray-700">Show Detection Regions</span>
@@ -195,7 +195,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-center md:text-left">
+                  className="text-center md:text-left flex-1">
                   <motion.h2
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -214,17 +214,14 @@ export default function Home() {
                       transition={{ delay: 1 }}
                       className="p-3 rounded-lg bg-gray-50 border border-gray-100">
                       <div className="flex items-start space-x-3">
-                        <div className={`p-1.5 rounded-full ${
-                          predData.prediction === 'malignant'
-                            ? 'bg-red-100'
-                            : 'bg-green-100'
-                        }`}>
+                        <div
+                          className={`p-1.5 rounded-full ${
+                            predData.prediction === 'malignant' ? 'bg-red-100' : 'bg-green-100'
+                          }`}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className={`h-5 w-5 ${
-                              predData.prediction === 'malignant'
-                                ? 'text-red-600'
-                                : 'text-green-600'
+                              predData.prediction === 'malignant' ? 'text-red-600' : 'text-green-600'
                             }`}
                             fill="none"
                             viewBox="0 0 24 24"
@@ -251,7 +248,7 @@ export default function Home() {
                             {predData.prediction === 'malignant' ? 'Potential Cancer Detected' : 'No Cancer Detected'}
                           </h3>
                           <p className="text-sm text-gray-600 mt-0.5">
-                            {predData.prediction === 'malignant' 
+                            {predData.prediction === 'malignant'
                               ? 'Please consult with a healthcare professional for further evaluation.'
                               : 'Regular check-ups are recommended.'}
                           </p>
@@ -336,6 +333,85 @@ export default function Home() {
                         </svg>
                         Upload Another Image
                       </motion.button>
+                    </motion.div>
+
+                    {/* Hospital Locations Section */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2 }}
+                      className="mt-12 pt-8 border-t border-gray-200">
+                      <h2 className="text-xl font-bold text-gray-900 mb-6">Nearby Medical Facilities</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* Cooper University Hospital */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1.3 }}
+                          className="bg-gray-50 rounded-xl shadow-sm p-4">
+                          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-3">
+                            <iframe
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.8379999999997!2d-75.1197!3d39.9457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c7c0c0c0c0c0%3A0x0!2zQ29vcGVyIFVuaXZlcnNpdHkgSG9zcGl0YWw!5e0!3m2!1sen!2sus!4v1647123456789!5m2!1sen!2sus"
+                              width="100%"
+                              height="150"
+                              style={{ border: 0 }}
+                              allowFullScreen
+                              loading="lazy"
+                              referrerPolicy="no-referrer-when-downgrade"
+                              className="rounded-lg"
+                            ></iframe>
+                          </div>
+                          <h3 className="text-lg font-semibold text-gray-900">Cooper University Hospital</h3>
+                          <p className="text-sm text-gray-600">1 Cooper Plaza, Camden, NJ 08103</p>
+                          <p className="text-sm text-gray-600">Phone: (856) 342-2000</p>
+                        </motion.div>
+
+                        {/* Virtua Voorhees Hospital */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1.4 }}
+                          className="bg-gray-50 rounded-xl shadow-sm p-4">
+                          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-3">
+                            <iframe
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.8379999999997!2d-74.9547!3d39.8500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c7c0c0c0c0c0%3A0x0!2zVmlydHVhIFZvb3JoZWVzIEhvc3BpdGFs!5e0!3m2!1sen!2sus!4v1647123456789!5m2!1sen!2sus"
+                              width="100%"
+                              height="150"
+                              style={{ border: 0 }}
+                              allowFullScreen
+                              loading="lazy"
+                              referrerPolicy="no-referrer-when-downgrade"
+                              className="rounded-lg"
+                            ></iframe>
+                          </div>
+                          <h3 className="text-lg font-semibold text-gray-900">Virtua Voorhees Hospital</h3>
+                          <p className="text-sm text-gray-600">100 Bowman Drive, Voorhees, NJ 08043</p>
+                          <p className="text-sm text-gray-600">Phone: (856) 247-3000</p>
+                        </motion.div>
+
+                        {/* Jefferson Health - Cherry Hill */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1.5 }}
+                          className="bg-gray-50 rounded-xl shadow-sm p-4">
+                          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-3">
+                            <iframe
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.8379999999997!2d-75.0317!3d39.9333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c7c0c0c0c0c0%3A0x0!2zSmVmZmVyc29uIEhlYWx0aCAtIENoZXJyeSBIaWxs!5e0!3m2!1sen!2sus!4v1647123456789!5m2!1sen!2sus"
+                              width="100%"
+                              height="150"
+                              style={{ border: 0 }}
+                              allowFullScreen
+                              loading="lazy"
+                              referrerPolicy="no-referrer-when-downgrade"
+                              className="rounded-lg"
+                            ></iframe>
+                          </div>
+                          <h3 className="text-lg font-semibold text-gray-900">Jefferson Health - Cherry Hill</h3>
+                          <p className="text-sm text-gray-600">2201 Chapel Avenue West, Cherry Hill, NJ 08002</p>
+                          <p className="text-sm text-gray-600">Phone: (856) 488-7000</p>
+                        </motion.div>
+                      </div>
                     </motion.div>
                   </motion.div>
                 </motion.div>
