@@ -27,7 +27,7 @@ export default function LandingPage() {
                   <div className="text-right">
                     <div className="text-sm font-medium text-gray-900">{user.name}</div>
                     <Link
-                      href="/logout"
+                      href="/auth/logout"
                       className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200 rounded-md"
                     >
                       Log out
