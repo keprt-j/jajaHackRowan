@@ -151,7 +151,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="relative">
+                  className="relative border-r border-gray-200 pr-12">
                   <div className="relative">
                     <motion.img
                       initial={{ scale: 0.9 }}
