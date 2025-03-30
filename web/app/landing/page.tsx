@@ -6,7 +6,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 
 export default function LandingPage() {
   const { user, isLoading } = useUser();
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Header with Auth Buttons */}
