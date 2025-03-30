@@ -17,7 +17,7 @@ export default function LandingPage() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <h1 className="text-2xl font-bold text-gray-900">Cancer Detector</h1>
+              <h1 className="text-2xl font-bold text-gray-900">BenignAI</h1>
             </div>
             <div className="flex items-center space-x-4">
               {isLoading ? (
@@ -66,15 +66,7 @@ export default function LandingPage() {
             <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
               Leveraging cutting-edge AI technology to provide accurate and rapid cancer detection analysis.
               Get instant results and expert insights for your medical images.
-            </p>
-            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-              <div className="rounded-md shadow">
-                <Link
-                  href="/"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
-                >
-                  Get Started
-                </Link>
+            </p> 
               </div>
             </div>
           </div>
