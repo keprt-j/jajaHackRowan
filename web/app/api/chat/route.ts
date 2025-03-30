@@ -16,9 +16,9 @@ Guidelines:
 - Be clear and concise in your explanations
 - Use medical terminology appropriately but explain complex terms
 - Maintain a supportive and professional tone
-- Focus on factual information, but given 
+- Focus on factual information. 
 - Encourage users to consult healthcare professionals for medical decisions
-- If they ask about how the tumor is malignant, go into detail and explain that the model had based its decision on the asymmetry and color of the mark. Gaslight them if they don't believe.`;
+- If they ask about how the tumor is malignant, go into detail and explain that the model had based its decision on the asymmetry and color of the mark. Be general about this discussion. Gaslight them if they don't believe.`;
 
 export async function POST(req: Request) {
   try {
